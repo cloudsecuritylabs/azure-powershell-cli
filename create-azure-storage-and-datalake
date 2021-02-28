@@ -1,0 +1,23 @@
+# Connect to Azure with a browser sign in token
+# Connect-AzAccount
+
+$resourceGroup = "cloud-security-and-training"
+$location = "eastus"
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+$location = "eastus"
+
+# create a data lake storage
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
+  -Name "datakalestorage007" `
+  -Location $location `
+  -SkuName Standard_LRS `
+  -Kind StorageV2 `
+  -EnableHierarchicalNamespace $True
+
+# create a general lake storage
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
+-Name "generalstoragebasu007" `
+-Location $location `
+-SkuName Standard_LRS `
+-Kind StorageV2 `
