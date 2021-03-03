@@ -5,7 +5,12 @@ $resourceGroup = "cloud-security-and-training"
 $location = "eastus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
-$location = "eastus"
+# create a general storage accout
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
+-Name "generalstoragebasu007" `
+-Location $location `
+-SkuName Standard_LRS `
+-Kind StorageV2 `
 
 # create a data lake storage
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
@@ -14,10 +19,3 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -SkuName Standard_LRS `
   -Kind StorageV2 `
   -EnableHierarchicalNamespace $True
-
-# create a general lake storage
-New-AzStorageAccount -ResourceGroupName $resourceGroup `
--Name "generalstoragebasu007" `
--Location $location `
--SkuName Standard_LRS `
--Kind StorageV2 `
